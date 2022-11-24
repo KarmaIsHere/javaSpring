@@ -8,6 +8,7 @@ import com.parcel.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -50,5 +51,21 @@ public class TripService {
         } else {
             return tripRepository.findAll();
         }
+    }
+    public void updateTripInformation(Long id, Timestamp newStart, Timestamp newEnd) {
+        if (newStart != null) {
+            ClassTrip classTrip = tripRepository.findTripById(id);
+            classTrip.setStart(newStart);
+            tripRepository.save(classTrip);
+        }
+        if (newEnd != null) {
+            ClassTrip classTrip = tripRepository.findTripById(id);
+            classTrip.setStart(newEnd);
+            tripRepository.save(classTrip);
+        }
+    }
+    public void deleteTripByLogin(Long id) {
+        ClassTrip classTrip = tripRepository.findTripById(id);
+        tripRepository.deleteById(classTrip.getId());
     }
 }

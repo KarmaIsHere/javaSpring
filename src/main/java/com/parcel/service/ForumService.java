@@ -52,11 +52,13 @@ public class ForumService {
             ClassForum classForum = forumRepository.findForumById(id);
             classForum.setTitle(newTitle);
             forumRepository.save(classForum);
-        } else if (newDescription != null) {
+        }
+        if (newDescription != null) {
             ClassForum classForum = forumRepository.findForumById(id);
             classForum.setDescription(newDescription);
             forumRepository.save(classForum);
-        } else if (newCategory != null) {
+        }
+        if (newCategory != null) {
             ClassForum classForum = forumRepository.findForumById(id);
             classForum.setCategory(newCategory);
             forumRepository.save(classForum);

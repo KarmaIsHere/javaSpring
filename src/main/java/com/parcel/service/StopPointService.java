@@ -1,6 +1,7 @@
 package com.parcel.service;
 
 import com.parcel.model.domain.order.ClassStopPoint;
+import com.parcel.model.domain.order.ClassTrip;
 import com.parcel.repository.StopPointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,10 @@ public class StopPointService {
 
     public ClassStopPoint fetchStopPoint(Long id){
         return stopPointRepository.findStopPointById(id);
+    }
+
+    public void deleteStopPointByLogin(Long id) {
+        ClassStopPoint classStopPoint = stopPointRepository.findStopPointById(id);
+        stopPointRepository.deleteById(classStopPoint.getId());
     }
 }

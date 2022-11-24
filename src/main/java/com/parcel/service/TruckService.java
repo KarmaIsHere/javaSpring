@@ -3,6 +3,7 @@ package com.parcel.service;
 import com.parcel.model.api.request.CreateTruckRequest;
 import com.parcel.model.domain.ClassTruck;
 import com.parcel.model.domain.TruckStatus;
+import com.parcel.model.domain.user.ClassUser;
 import com.parcel.repository.TruckRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,18 +53,25 @@ public class TruckService {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setBrand(newBrand);
             truckRepository.save(classTruck);
-        } else if (newYear != null) {
+        }
+        if (newYear != null) {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setYear(newYear);
             truckRepository.save(classTruck);
-        } else if (newHeight != null) {
+        }
+        if (newHeight != null) {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setHeight(newHeight);
             truckRepository.save(classTruck);
-        } else if (newWeight != null) {
+        }
+        if (newWeight != null) {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setWeight(newWeight);
             truckRepository.save(classTruck);
         }
+    }
+    public void deleteTruckByLogin(Long id) {
+        ClassTruck classTruck = truckRepository.findTruckById(id);
+        truckRepository.deleteById(classTruck.getId());
     }
 }

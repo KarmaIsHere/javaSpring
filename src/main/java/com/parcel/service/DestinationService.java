@@ -44,4 +44,26 @@ public class DestinationService {
     public ClassDestination fetchDestination(Long id){
         return destinationRepository.findDestinationById(id);
     }
+
+    public void updateDestinationInformation(Long id, String newCountry, String newCity, String newStreetAddress) {
+        if (newCountry != null) {
+            ClassDestination classDestination = destinationRepository.findDestinationById(id);
+            classDestination.setCountry(newCountry);
+            destinationRepository.save(classDestination);
+        }
+        if (newCity != null) {
+            ClassDestination classDestination = destinationRepository.findDestinationById(id);
+            classDestination.setCity(newCity);
+            destinationRepository.save(classDestination);
+        }
+        if (newStreetAddress != null) {
+            ClassDestination classDestination = destinationRepository.findDestinationById(id);
+            classDestination.setStreetAddress(newStreetAddress);
+            destinationRepository.save(classDestination);
+        }
+    }
+    public void deleteDestinationByLogin(Long id) {
+        ClassDestination classDestination = destinationRepository.findDestinationById(id);
+        destinationRepository.deleteById(classDestination.getId());
+    }
 }
