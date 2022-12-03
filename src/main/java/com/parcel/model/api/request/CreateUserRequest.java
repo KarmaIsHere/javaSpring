@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 @Data
@@ -28,7 +27,7 @@ public class CreateUserRequest {
     @Schema(description = "User login", example = "user123")
     private String login;
     @NonNull
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 30)
     @Schema(description = "User Password", example = "123")
     private String password;
     @NonNull

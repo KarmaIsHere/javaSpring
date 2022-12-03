@@ -8,36 +8,35 @@ import com.parcel.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class TripService {
 
     private final TripRepository tripRepository;
-    private final ShipmentService shipmentService;
     private final UserService userService;
     private final TruckService truckService;
 
     @Autowired
     public TripService(TripRepository tripRepository,
-                       ShipmentService shipmentService,
                        UserService userService,
                        TruckService truckService) {
         this.tripRepository = tripRepository;
-        this.shipmentService = shipmentService;
         this.userService = userService;
         this.truckService = truckService;
     }
 
     public ClassTrip createTrip(CreateTripRequest request){
 
-        ClassUser user = userService.fetchUser(request.getUserId()); // ??????
-        ClassTruck truck = truckService.fetchTruck(request.getTruckId()); // ??????
+        ClassUser user = userService.fetchUser(request.getUserId());
+        ClassTruck truck = truckService.fetchTruck(request.getTruckId());
 
         ClassTrip trip = ClassTrip.builder()
                 .start(null)
                 .end(null)
+                .deadline(request.getDeadline())
                 .driver(user)
                 .truck(truck)
                 .build();
@@ -52,7 +51,11 @@ public class TripService {
             return tripRepository.findAll();
         }
     }
-    public void updateTripInformation(Long id, Timestamp newStart, Timestamp newEnd) {
+
+    public ClassTrip fetchTrip(Long id){
+        return tripRepository.findTripById(id);
+    }
+    public void updateTripInformation(Long id, LocalDate newStart, LocalDate newEnd) {
         if (newStart != null) {
             ClassTrip classTrip = tripRepository.findTripById(id);
             classTrip.setStart(newStart);

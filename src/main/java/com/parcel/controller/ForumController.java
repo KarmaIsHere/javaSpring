@@ -33,8 +33,8 @@ public class ForumController {
     @Operation(summary = "Get forums from database")
     public List<ForumResponse> fetchForums(@RequestParam(required = false) Long id,
                                                @RequestParam(required = false) Long forumId,
-                                               @RequestParam(required = false) String text
-    ) {
+                                               @RequestParam(required = false) String text)
+    {
         return forumService.fetchForums(id,forumId, text).stream()
                 .map(p -> new ForumResponse(p.getId(), p.getTitle(), p.getDescription(), p.getCategory(), p.getCreator().getId(), p.getDate()))
                 .collect(Collectors.toList());

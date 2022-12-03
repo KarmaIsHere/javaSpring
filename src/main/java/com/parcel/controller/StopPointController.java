@@ -33,4 +33,5 @@ public class StopPointController {
                 .map(p -> new StopPointResponse(p.getId(), p.getNr(), p.getStopDate(), p.getShipment().getId(), p.getTrip().getId()))
                 .collect(Collectors.toList());
     }
+
 }

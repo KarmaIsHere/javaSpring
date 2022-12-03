@@ -25,10 +25,10 @@ public class ClassForum {
     @Column(name = "FORUM_TITLE", nullable = false)
     private String title;
 
-    @Column(name = "FORUM_DESCRIPTION", nullable = false)
+    @Column(name = "FORUM_DESCRIPTION")
     private String description;
 
-    @Column(name = "FORUM_CATEGORY", nullable = false)
+    @Column(name = "FORUM_CATEGORY")
     private String category;
 
     @OneToMany(mappedBy = "forum")

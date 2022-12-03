@@ -11,18 +11,18 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class CreateDestinationRequest {
 
-    @Size(max = 30)
     @NonNull
-    @Schema(name = "Destination country", example = "USA")
+    @Size(max = 30)
+    @Schema(description = "Destination country", example = "USA")
     private String country;
 
-    @Size(max = 30)
     @NonNull
-    @Schema(name = "Destination city", example = "New York")
+    @Size(max = 30)
+    @Schema(description = "Destination city", example = "New York")
     private String city;
 
-    @Size(max = 70)
     @NonNull
-    @Schema(name = "Destination street address", example = "7862 Homestead St. Astoria, NY 11103")
+    @Size(max = 70)
+    @Schema(description = "Destination street address", example = "7862 Homestead St. Astoria, NY 11103")
     private String streetAddress;
 }

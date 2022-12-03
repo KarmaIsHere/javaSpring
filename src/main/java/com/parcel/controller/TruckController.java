@@ -6,6 +6,7 @@ import com.parcel.model.domain.TruckStatus;
 import com.parcel.service.TruckService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,5 +48,11 @@ public class TruckController {
                                 @RequestParam(required = false) String newHeight,
                                 @RequestParam(required = false) String newWeight) {
         this.truckService.updateTruckInformation(id, newBrand, newYear, newHeight, newWeight);
+    }
+    @DeleteMapping(path = "/delete")
+    @Operation(summary = "Delete truck from database")
+    public ResponseEntity<Void> deleteTruckByLogin(@RequestParam Long id) {
+        truckService.deleteTruckByLogin(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -24,17 +24,20 @@ public class ClassTrip {
     @Column(name = "TRIP_ID", nullable = false)
     private Long id;
 
-    @Column(name = "TRIP_START", nullable = false)
-    private Timestamp start;
+    @Column(name = "TRIP_START")
+    private LocalDate start;
 
-    @Column(name = "TRIP_END", nullable = false)
-    private Timestamp end;
+    @Column(name = "TRIP_END")
+    private LocalDate end;
+
+    @Column(name = "DEADLINE", nullable = false)
+    private LocalDate deadline;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "USER_ID")
     private ClassUser driver;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TRUCK_ID", nullable = false)
+    @JoinColumn(name = "TRUCK_ID")
     private ClassTruck truck;
 
     @OneToMany(mappedBy = "trip")

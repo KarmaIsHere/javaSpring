@@ -8,26 +8,32 @@ import com.parcel.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.Timestamp;
+
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class CommentService {
+    private final ForumService forumService;
+    private  final  UserService userService;
     private final CommentRepository commentRepository;
 
     @Autowired
-    public CommentService(CommentRepository commentRepository) {
+    public CommentService(ForumService forumService, UserService userService, CommentRepository commentRepository) {
+        this.forumService = forumService;
+        this.userService = userService;
         this.commentRepository = commentRepository;
     }
 
     public ClassComment createComment(CreateCommentRequest request) {
         Instant now = Instant.now();
-        //ClassForum user = forumService.fetchFprum(request.getForumId());
+        ClassForum forum = forumService.fetchForum(request.getForum());
+        ClassUser user = userService.fetchUser(request.getUser());
         ClassComment comment = ClassComment.builder()
                 .text(request.getText())
                 .date(now)
+                .forum(forum)
+                .user(user)
                 .build();
         return commentRepository.save(comment);
     }

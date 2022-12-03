@@ -11,9 +11,12 @@ import javax.validation.constraints.Size;
 public class CreateCommentRequest {
 
     @NonNull
-    @Schema(name = "Comment content", example = "I got stopped by the police")
+    @Schema(description = "Comment content", example = "I got stopped by the police")
     private String text;
     @NonNull
-    @Schema(name = "Comment creator", example = "John Smith")
+    @Schema(description = "Comment creator", example = "1")
     private Long user;
+    @NonNull
+    @Schema(description = "Comment forum", example = "1")
+    private Long forum;
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
 
 @Data
@@ -24,8 +24,8 @@ public class ClassStopPoint {
     @Column(name = "STOPPOINT_NR", nullable = false)
     private int nr;
 
-    @Column(name = "STOPPOINT_TIME", nullable = false)
-    private Timestamp stopDate;
+    @Column(name = "STOPPOINT_TIME")
+    private LocalDate stopDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIPMENT_ID", nullable = false)

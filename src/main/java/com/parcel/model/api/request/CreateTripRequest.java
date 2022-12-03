@@ -6,7 +6,8 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -18,5 +19,8 @@ public class CreateTripRequest {
     @NonNull
     @Schema(description = "Trip truck id", example = "12")
     private Long truckId;
+    @NonNull
+    @Schema(description = "Trip deadline", example = "12")
+    private LocalDate deadline;
     
 }

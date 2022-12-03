@@ -1,30 +1,34 @@
 package com.parcel.service;
 
 import com.parcel.model.api.request.CreateShipmentRequest;
-import com.parcel.model.domain.order.ClassShipment;
-import com.parcel.model.domain.order.ClassStopPoint;
+import com.parcel.model.domain.order.ClassDestination;
 import com.parcel.model.domain.order.ClassShipment;
 import com.parcel.repository.ShipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 @Service
 public class ShipmentService {
 
+    private final DestinationService destinationService;
+
     private final ShipmentRepository shipmentRepository;
 
     @Autowired
-    public ShipmentService(ShipmentRepository shipmentRepository) {
+    public ShipmentService(DestinationService destinationService, ShipmentRepository shipmentRepository) {
+        this.destinationService = destinationService;
         this.shipmentRepository = shipmentRepository;
     }
 
     public ClassShipment createShipment(CreateShipmentRequest request) {
+        ClassDestination destination = destinationService.fetchDestination(request.getDestination());
+
         ClassShipment shipment = ClassShipment.builder()
                 .description(request.getDescription())
                 .weight(request.getWeight())
+                .destination(destination)
                 .build();
         return shipmentRepository.save(shipment);
     }

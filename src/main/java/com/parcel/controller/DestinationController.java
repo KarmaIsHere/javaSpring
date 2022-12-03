@@ -5,6 +5,7 @@ import com.parcel.model.api.response.DestinationResponse;
 import com.parcel.service.DestinationService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +38,11 @@ public class DestinationController {
         return destinationService.fetchDestinations(id, country, city, streetAddress).stream()
                 .map(p -> new DestinationResponse(p.getId() ,p.getCountry(), p.getCity(), p.getStreetAddress()))
                 .collect(Collectors.toList());
+    }
+    @DeleteMapping(path = "/delete")
+    @Operation(summary = "Delete destination from database")
+    public ResponseEntity<Void> deleteDestinationByLogin(@RequestParam Long id) {
+        destinationService.deleteDestinationByLogin(id);
+        return ResponseEntity.noContent().build();
     }
 }

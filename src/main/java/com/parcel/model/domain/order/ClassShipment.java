@@ -6,14 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
+
 
 @Data
 @Entity(name = "Shipments")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassShipment {
+public class ClassShipment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +29,7 @@ public class ClassShipment {
     private String weight;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DESTINATION_ID", nullable = false)
+    @JoinColumn(name = "DESTINATION_ID")
     private ClassDestination destination;
 
     @OneToMany(mappedBy = "shipment")

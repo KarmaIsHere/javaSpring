@@ -4,7 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
+
 
 @Data
 @AllArgsConstructor
@@ -17,7 +18,7 @@ public class StopPointResponse {
     private int nr;
 
     @Schema(description = "Date and time when stop was reached", example = "?????")
-    private Timestamp stopDate;
+    private LocalDate stopDate;
 
     @Schema(description = "Shipment that needs to be delivered to this stop point", example = "2000kg")
     private Long shipmentId;

@@ -5,10 +5,10 @@ import com.parcel.model.api.response.ShipmentResponse;
 import com.parcel.service.ShipmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.CacheRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,5 +33,11 @@ public class ShipmentController {
         return shipmentService.fetchShipments(id).stream()
                 .map(p -> new ShipmentResponse(p.getId() ,p.getDescription(), p.getWeight(), p.getDestination().getId()))
                 .collect(Collectors.toList());
+    }
+    @DeleteMapping(path = "/delete")
+    @Operation(summary = "Delete shipment from database")
+    public ResponseEntity<Void> deleteShipmentByLogin(@RequestParam Long id) {
+        shipmentService.deleteShipmentByLogin(id);
+        return ResponseEntity.noContent().build();
     }
 }
