@@ -8,7 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ShipmentResponse {
 
-    @Schema(description = "Shipment id", example = "42")
+    @Schema(description = "Shipment id", example = "1")
     private Long id;
 
     @Schema(description = "Short shipment description", example = "T-shirts")
@@ -17,6 +17,6 @@ public class ShipmentResponse {
     @Schema(description = "Shipment weight", example = "2000kg")
     private String weight;
 
-    @Schema(description = "Shipment destination", example = "123")
+    @Schema(description = "Shipment destination", example = "1")
     private Long destinationId;
 }

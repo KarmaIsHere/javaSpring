@@ -17,12 +17,12 @@ public class StopPointResponse {
     @Schema(description = "Number of the stop", example = "1")
     private int nr;
 
-    @Schema(description = "Date and time when stop was reached", example = "?????")
+    @Schema(description = "Date and time when stop was reached", example = "2022-12-06")
     private LocalDate stopDate;
 
     @Schema(description = "Shipment that needs to be delivered to this stop point", example = "2000kg")
     private Long shipmentId;
 
-    @Schema(description = "Stop points assigned trip", example = "234")
+    @Schema(description = "Stop points assigned trip", example = "1")
     private Long tripId;
 }

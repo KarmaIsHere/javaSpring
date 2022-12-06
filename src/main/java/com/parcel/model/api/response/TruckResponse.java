@@ -9,7 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class TruckResponse {
 
-    @Schema(description = "Truck id", example = "12")
+    @Schema(description = "Truck id", example = "2")
     private Long id;
 
     @Schema(description = "Truck brand", example = "Toyota")

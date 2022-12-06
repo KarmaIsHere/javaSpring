@@ -38,8 +38,12 @@ public class UserController {
                                          @RequestParam(required = false) String password,
                                          @RequestParam(required = false) String email,
                                          @RequestParam(required = false) UserAccountType accountType,
-                                         @RequestParam(required = false) UserStatus status) {
-        return userService.fetchUsers(id, login, password, email, accountType, status).stream()
+                                         @RequestParam(required = false) UserStatus status,
+                                         @RequestParam(required = false) String firstName,
+                                         @RequestParam(required = false) String lastName,
+                                         @RequestParam(required = false) String phoneNumber,
+                                         @RequestParam(required = false) String salary) {
+        return userService.fetchUsers(id, login, password, email, accountType, status, firstName, lastName, phoneNumber, salary).stream()
                 .map(p -> new UserResponse(p.getId(), p.getAccountType(), p.getFirstName(), p.getLastName(), p.getStatus(), p.getEmail(), p.getLogin(), p.getPassword(), p.getPhoneNumber(), p.getSalary()))
                 .collect(Collectors.toList());
     }

@@ -14,13 +14,16 @@ import java.time.LocalDate;
 public class CreateTripRequest {
 
     @NonNull
+    @Schema(description = "Trip start", example = "1")
+    private LocalDate start;
+    @NonNull
     @Schema(description = "Trip user id", example = "1")
-    private Long userId;
+    private Long user;
     @NonNull
-    @Schema(description = "Trip truck id", example = "12")
-    private Long truckId;
+    @Schema(description = "Trip truck id", example = "2")
+    private Long truck;
     @NonNull
-    @Schema(description = "Trip deadline", example = "12")
+    @Schema(description = "Trip deadline", example = "2022-12-06")
     private LocalDate deadline;
     
 }

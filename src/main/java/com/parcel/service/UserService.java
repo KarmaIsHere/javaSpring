@@ -35,7 +35,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<ClassUser> fetchUsers(Long id, String login, String password, String email, UserAccountType accountType, UserStatus status) {
+    public List<ClassUser> fetchUsers(Long id, String login, String password, String email, UserAccountType accountType, UserStatus status, String firstName, String lastName, String phoneNumber, String salary) {
         if (id != null) {
             return this.userRepository.findAllById(id);
         } else if (login != null) {
@@ -43,11 +43,19 @@ public class UserService {
         } else if (email != null) {
             return this.userRepository.findAllByEmail(email);
         } else if (password != null) {
-            return this.userRepository.findAllByEmail(password);
+            return this.userRepository.findAllByPassword(password);
         } else if (accountType != null) {
             return this.userRepository.findAllByAccountType(accountType);
         } else if (status != null) {
             return this.userRepository.findAllByStatus(status);
+        } else if (firstName != null) {
+            return this.userRepository.findAllByFirstName(firstName);
+        } else if (lastName != null) {
+            return this.userRepository.findAllByLastName(lastName);
+        } else if (phoneNumber != null) {
+            return this.userRepository.findAllByPhoneNumber(phoneNumber);
+        } else if (salary != null) {
+            return this.userRepository.findAllBySalary(salary);
         } else {
             return this.userRepository.findAll();
         }

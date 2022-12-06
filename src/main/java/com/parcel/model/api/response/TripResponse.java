@@ -10,21 +10,18 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class TripResponse {
-    @Schema(description = "Trip id", example = "144")
+    @Schema(description = "Trip id", example = "1")
     private Long id;
 
-    @Schema(description = "Trip start date", example = "1")
+    @Schema(description = "Trip start date", example = "2022-12-06")
     private LocalDate start;
 
-    @Schema(description = "Trip finish date", example = "1")
-    private LocalDate end;
-
-    @Schema(description = "Trip deadline", example = "1")
+    @Schema(description = "Trip deadline", example = "2022-12-06")
     private LocalDate deadline;
 
     @Schema(description = "Trip user id", example = "1")
-    private Long userId;
+    private Long user;
 
-    @Schema(description = "Trip truck id", example = "12")
-    private Long truckId;
+    @Schema(description = "Trip truck id", example = "1")
+    private Long truck;
 }

@@ -10,18 +10,18 @@ import java.time.Instant;
 @Data
 @AllArgsConstructor
 public class CommentResponse {
-    @Schema(description = "Comment id", example = "543")
+    @Schema(description = "Comment id", example = "1")
     private Long id;
 
     @Schema(description = "Comment text", example = "I got stopped by the police")
     private String text;
 
-    @Schema(description = "Comment date", example = "1")
+    @Schema(description = "Comment date")
     private Instant date;
 
-    @Schema(description = "Comment forum", example = "23")
-    private ClassForum forumId;
+    @Schema(description = "Comment forum", example = "1")
+    private Long forum;
 
-    @Schema(description = "Comment user", example = "2")
-    private ClassUser creatorId;
+    @Schema(description = "Comment user", example = "1")
+    private Long user;
 }

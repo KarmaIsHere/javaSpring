@@ -27,9 +27,6 @@ public class ClassTrip {
     @Column(name = "TRIP_START")
     private LocalDate start;
 
-    @Column(name = "TRIP_END")
-    private LocalDate end;
-
     @Column(name = "DEADLINE", nullable = false)
     private LocalDate deadline;
     @ManyToOne(fetch = FetchType.LAZY)

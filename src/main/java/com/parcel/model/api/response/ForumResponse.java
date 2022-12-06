@@ -10,7 +10,7 @@ import java.time.Instant;
 @AllArgsConstructor
 public class ForumResponse {
 
-    @Schema(name = "Forum id", example = "89")
+    @Schema(name = "Forum id", example = "1")
     private Long id;
 
     @Schema(name = "Forum title", example = "Where has Bob Roger been?")
@@ -23,9 +23,9 @@ public class ForumResponse {
     private String category;
 
     @Schema(name = "Forum creator", example = "John Smith")
-    private Long userId;
+    private Long user;
 
-    @Schema(name = "Forum creation date", example = "1")
+    @Schema(name = "Forum creation date")
     private Instant date;
 
 }

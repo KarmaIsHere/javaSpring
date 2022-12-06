@@ -36,7 +36,7 @@ public class CommentController {
                                                @RequestParam(required = false) String text
                                                ) {
         return commentService.fetchComments(id,forumId, text).stream()
-                .map(p -> new CommentResponse(p.getId(), p.getText(), p.getDate(), p.getForum(), p.getUser()))
+                .map(p -> new CommentResponse(p.getId(), p.getText(), p.getDate(), p.getForum().getId(), p.getUser().getId()))
                 .collect(Collectors.toList());
     }
 

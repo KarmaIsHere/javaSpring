@@ -23,5 +23,5 @@ public class CreateForumRequest {
 
     @NonNull
     @Schema(description = "Forum creator", example = "1")
-    private Long userId;
+    private Long user;
 }

@@ -23,7 +23,7 @@ public class ForumService {
 
     public ClassForum createForum(CreateForumRequest request) {
         Instant now = Instant.now();
-        ClassUser user = userService.fetchUser(request.getUserId());
+        ClassUser user = userService.fetchUser(request.getUser());
         ClassForum forum = ClassForum.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())

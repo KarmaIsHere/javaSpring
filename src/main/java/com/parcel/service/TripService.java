@@ -30,12 +30,11 @@ public class TripService {
 
     public ClassTrip createTrip(CreateTripRequest request){
 
-        ClassUser user = userService.fetchUser(request.getUserId());
-        ClassTruck truck = truckService.fetchTruck(request.getTruckId());
+        ClassUser user = userService.fetchUser(request.getUser());
+        ClassTruck truck = truckService.fetchTruck(request.getTruck());
 
         ClassTrip trip = ClassTrip.builder()
-                .start(null)
-                .end(null)
+                .start(request.getStart())
                 .deadline(request.getDeadline())
                 .driver(user)
                 .truck(truck)
