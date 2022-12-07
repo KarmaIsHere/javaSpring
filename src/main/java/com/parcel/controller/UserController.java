@@ -51,16 +51,16 @@ public class UserController {
     @PutMapping(path = "/update")
     @Operation(summary = "Update user information")
     public void updateUserLogin(@RequestParam String login,
-                                @RequestParam(required = false) String newLogin,
-                                @RequestParam(required = false) String newEmail,
-                                @RequestParam(required = false) String newPassword,
-                                @RequestParam(required = false) String newFirstName,
-                                @RequestParam(required = false) String newLastName,
-                                @RequestParam(required = false) String newPhoneNumber,
-                                @RequestParam(required = false) String newSalary,
-                                @RequestParam(required = false) UserStatus newStatus,
-                                @RequestParam(required = false) UserAccountType newAccountType) {
-        this.userService.updateUserInformation(login, newLogin, newEmail, newPassword, newFirstName, newLastName, newPhoneNumber, newSalary, newStatus, newAccountType);
+                                @RequestParam(required = false) String Login,
+                                @RequestParam(required = false) String Email,
+                                @RequestParam(required = false) String Password,
+                                @RequestParam(required = false) String FirstName,
+                                @RequestParam(required = false) String LastName,
+                                @RequestParam(required = false) String PhoneNumber,
+                                @RequestParam(required = false) String Salary,
+                                @RequestParam(required = false) UserStatus Status,
+                                @RequestParam(required = false) UserAccountType AccountType) {
+        this.userService.updateUserInformation(login, Login, Email, Password, FirstName, LastName, PhoneNumber, Salary, Status, AccountType);
     }
 
     @DeleteMapping(path = "/delete")
