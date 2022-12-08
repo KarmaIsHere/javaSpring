@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.Size;v
+import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
