@@ -1,5 +1,6 @@
 package com.parcel.controller;
 
+import com.parcel.model.api.request.CreateStopPointRequest;
 import com.parcel.model.api.response.StopPointResponse;
 import com.parcel.service.StopPointService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,11 +21,11 @@ public class StopPointController {
     @Autowired
     public StopPointController(StopPointService stopPointService) {this.stopPointService = stopPointService;}
 
-//    @PostMapping(path = "/create")
-//    @Operation(summary = "Create new stopPoint in database")
-//    public Long createStopPoint(@Validated @RequestBody CreateStopPointRequest request){
-//        return stopPointService.createStopPoint(request).getId();
-//    }
+    @PostMapping(path = "/create")
+    @Operation(summary = "Create new stopPoint in database")
+    public Long createStopPoint(@Validated @RequestBody CreateStopPointRequest request){
+        return stopPointService.createStopPoint(request).getId();
+    }
 
     @GetMapping(value = "/stopPoints")
     @Operation(summary = "Get stopPoints from database")

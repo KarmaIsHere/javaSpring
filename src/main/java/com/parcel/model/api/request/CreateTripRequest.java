@@ -20,7 +20,7 @@ public class CreateTripRequest {
     @Schema(description = "Trip user id", example = "1")
     private Long user;
     @NonNull
-    @Schema(description = "Trip truck id", example = "2")
+    @Schema(description = "Trip truck id", example = "1")
     private Long truck;
     @NonNull
     @Schema(description = "Trip deadline", example = "2022-12-06")

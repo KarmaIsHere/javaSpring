@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Size;v
 
 @Data
 @AllArgsConstructor
@@ -13,12 +13,12 @@ public class CreateStopPointRequest {
 
     @NonNull
     @Size(max = 30)
-    @Schema(description = "Short shipment description", example = "T-shirts")
+    @Schema(description = "Short shipment description", example = "1")
     private int nr;
     @NonNull
-    @Schema(description = "Shipment weight", example = "400kg")
+    @Schema(description = "Shipment shipment", example = "1")
     private Long shipment;
     @NonNull
-    @Schema(description = "Shipment destination", example = "1")
+    @Schema(description = "Shipment trip", example = "1")
     private Long trip;
 }
