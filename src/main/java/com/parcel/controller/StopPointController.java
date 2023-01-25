@@ -5,6 +5,7 @@ import com.parcel.model.api.response.StopPointResponse;
 import com.parcel.service.StopPointService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,4 +36,10 @@ public class StopPointController {
                 .collect(Collectors.toList());
     }
 
+    @DeleteMapping(path = "/delete")
+    @Operation(summary = "Delete stopPoint from database")
+    public ResponseEntity<Void> deleteStopPointByLogin(@RequestParam Long id) {
+        stopPointService.deleteStopPointByLogin(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -51,6 +51,9 @@ public class ClassUser {
     @OneToMany(mappedBy = "driver")
     private List<ClassTrip> trips;
 
+    @OneToMany(mappedBy = "manager")
+    private List<ClassTrip> tripss;
+
     @OneToMany(mappedBy = "user")
     private List<ClassComment> comments;
 

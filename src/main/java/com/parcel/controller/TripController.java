@@ -31,7 +31,7 @@ public class TripController {
     @Operation(summary = "Get trips from database")
     public List<TripResponse> fetchTrips(@RequestParam(required = false) Long id){
         return tripService.fetchTrips(id).stream()
-                .map(p -> new TripResponse(p.getId(), p.getStart(), p.getDeadline(), p.getDriver().getId(), p.getTruck().getId()))
+                .map(p -> new TripResponse(p.getId(), p.getStart(), p.getEnd(), p.getDeadline(), p.getStatus(), p.getDriver().getId(), p.getManager().getId(), p.getTruck().getId()))
                 .collect(Collectors.toList());
     }
 

@@ -24,15 +24,22 @@ public class ClassTrip {
     @Column(name = "TRIP_ID", nullable = false)
     private Long id;
 
-    @Column(name = "TRIP_START")
-    private LocalDate start;
-
     @Column(name = "DEADLINE", nullable = false)
     private LocalDate deadline;
+
+    @Column(name = "STATUS")
+    private TripStatus status;
+    @Column(name = "TRIP_START")
+    private LocalDate start;
+    @Column(name = "TRIP_END")
+    private LocalDate end;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private ClassUser driver;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MANAGER_ID")
+    private ClassUser manager;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TRUCK_ID")
     private ClassTruck truck;

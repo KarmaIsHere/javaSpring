@@ -3,6 +3,7 @@ package com.parcel.service;
 import com.parcel.model.api.request.CreateTripRequest;
 import com.parcel.model.domain.ClassTruck;
 import com.parcel.model.domain.order.ClassTrip;
+import com.parcel.model.domain.order.TripStatus;
 import com.parcel.model.domain.user.ClassUser;
 import com.parcel.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +32,16 @@ public class TripService {
     public ClassTrip createTrip(CreateTripRequest request){
 
         ClassUser user = userService.fetchUser(request.getUser());
+        ClassUser manager = userService.fetchUser(request.getUser());
         ClassTruck truck = truckService.fetchTruck(request.getTruck());
 
         ClassTrip trip = ClassTrip.builder()
                 .start(request.getStart())
+                .end(null)
                 .deadline(request.getDeadline())
+                .status(TripStatus.NEW)
                 .driver(user)
+                .manager(manager)
                 .truck(truck)
                 .build();
 
