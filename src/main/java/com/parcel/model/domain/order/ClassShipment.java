@@ -15,12 +15,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassShipment implements Serializable {
+public class ClassShipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SHIPMENT_ID", nullable = false)
     private Long id;
+    @Column(name = "SHIPMENT_STATUS")
+    private ShipmentStatus status;
 
     @Column(name = "SHIPMENT_DESCRIPTION", nullable = false)
     private String description;

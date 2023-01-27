@@ -14,8 +14,7 @@ public class StopPointResponse {
     @Schema(description = "StopPoint id", example = "1")
     private Long id;
 
-    @Schema(description = "Number of the stop", example = "1")
-    private int nr;
+
 
     @Schema(description = "Date and time when stop was reached", example = "2022-12-06")
     private LocalDate stopDate;

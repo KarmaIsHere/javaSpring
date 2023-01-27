@@ -3,6 +3,7 @@ package com.parcel.service;
 import com.parcel.model.api.request.CreateTripRequest;
 import com.parcel.model.domain.ClassTruck;
 import com.parcel.model.domain.order.ClassTrip;
+import com.parcel.model.domain.order.ShipmentStatus;
 import com.parcel.model.domain.order.TripStatus;
 import com.parcel.model.domain.user.ClassUser;
 import com.parcel.repository.TripRepository;
@@ -36,7 +37,7 @@ public class TripService {
         ClassTruck truck = truckService.fetchTruck(request.getTruck());
 
         ClassTrip trip = ClassTrip.builder()
-                .start(request.getStart())
+                .start(null)
                 .end(null)
                 .deadline(request.getDeadline())
                 .status(TripStatus.NEW)
@@ -48,9 +49,15 @@ public class TripService {
         return tripRepository.save(trip);
     }
 
-    public List<ClassTrip> fetchTrips(Long id){
+    public List<ClassTrip> fetchTrips(Long id, Long user_id, Long manager_id, Long truck_id){
         if(id != null) {
             return tripRepository.findAllById(id);
+        } else if (user_id != null){
+            return tripRepository.findAll().stream().filter(stop -> stop.getDriver().getId().equals(user_id)).toList();
+        } else if (manager_id != null){
+            return tripRepository.findAll().stream().filter(stop -> stop.getManager().getId().equals(manager_id)).toList();
+        } else if (truck_id != null){
+            return tripRepository.findAll().stream().filter(stop -> stop.getTruck().getId().equals(truck_id)).toList();
         } else {
             return tripRepository.findAll();
         }
@@ -59,7 +66,7 @@ public class TripService {
     public ClassTrip fetchTrip(Long id){
         return tripRepository.findTripById(id);
     }
-    public void updateTripInformation(Long id, LocalDate newStart, LocalDate newEnd) {
+    public void updateTripInformation(Long id, LocalDate newStart, LocalDate newEnd, TripStatus status) {
         if (newStart != null) {
             ClassTrip classTrip = tripRepository.findTripById(id);
             classTrip.setStart(newStart);
@@ -68,6 +75,11 @@ public class TripService {
         if (newEnd != null) {
             ClassTrip classTrip = tripRepository.findTripById(id);
             classTrip.setStart(newEnd);
+            tripRepository.save(classTrip);
+        }
+        if (status != null) {
+            ClassTrip classTrip = tripRepository.findTripById(id);
+            classTrip.setStatus(status);
             tripRepository.save(classTrip);
         }
     }

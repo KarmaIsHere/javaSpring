@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 
@@ -21,8 +24,7 @@ public class ClassStopPoint {
     @Column(name = "STOPPOINT_ID", nullable = false)
     private Long id;
 
-    @Column(name = "STOPPOINT_NR", nullable = false)
-    private int nr;
+
 
     @Column(name = "STOPPOINT_TIME")
     private LocalDate stopDate;

@@ -48,7 +48,7 @@ public class TruckService {
         return truckRepository.findTruckById(id);
     }
 
-    public void updateTruckInformation(Long id, String newBrand, String newYear, String newHeight, String newWeight) {
+    public void updateTruckInformation(Long id, String newBrand, String newYear, String newHeight, String newWeight, TruckStatus newStatus) {
         if (newBrand != null) {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setBrand(newBrand);
@@ -67,6 +67,11 @@ public class TruckService {
         if (newWeight != null) {
             ClassTruck classTruck = truckRepository.findTruckById(id);
             classTruck.setWeight(newWeight);
+            truckRepository.save(classTruck);
+        }
+        if (newStatus != null) {
+            ClassTruck classTruck = truckRepository.findTruckById(id);
+            classTruck.setStatus(newStatus);
             truckRepository.save(classTruck);
         }
     }

@@ -2,6 +2,7 @@ package com.parcel.controller;
 
 import com.parcel.model.api.request.CreateStopPointRequest;
 import com.parcel.model.api.response.StopPointResponse;
+import com.parcel.model.domain.order.ClassTrip;
 import com.parcel.service.StopPointService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,13 @@ public class StopPointController {
 
     @GetMapping(value = "/stopPoints")
     @Operation(summary = "Get stopPoints from database")
-    public List<StopPointResponse> fetchStopPoints(@RequestParam(required = false) Long id){
-        return stopPointService.fetchStopPoints(id).stream()
-                .map(p -> new StopPointResponse(p.getId(), p.getNr(), p.getStopDate(), p.getShipment().getId(), p.getTrip().getId()))
+    public List<StopPointResponse> fetchStopPoints(@RequestParam(required = false) Long id,
+                                                   @RequestParam(required = false) Long trip_id,
+                                                   @RequestParam(required = false) Long shipment_id){
+
+
+        return stopPointService.fetchStopPoints(id, trip_id, shipment_id).stream()
+                .map(p -> new StopPointResponse(p.getId(), p.getStopDate(), p.getShipment().getId(), p.getTrip().getId()))
                 .collect(Collectors.toList());
     }
 

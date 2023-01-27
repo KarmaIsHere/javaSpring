@@ -36,7 +36,6 @@ public class ClassTrip {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private ClassUser driver;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MANAGER_ID")
     private ClassUser manager;

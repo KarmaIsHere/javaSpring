@@ -2,6 +2,9 @@ package com.parcel.controller;
 
 import com.parcel.model.api.request.CreateTripRequest;
 import com.parcel.model.api.response.TripResponse;
+import com.parcel.model.domain.order.TripStatus;
+import com.parcel.model.domain.user.UserAccountType;
+import com.parcel.model.domain.user.UserStatus;
 import com.parcel.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,8 +33,12 @@ public class TripController {
 
     @GetMapping("/trips")
     @Operation(summary = "Get trips from database")
-    public List<TripResponse> fetchTrips(@RequestParam(required = false) Long id){
-        return tripService.fetchTrips(id).stream()
+    public List<TripResponse> fetchTrips(@RequestParam(required = false) Long id,
+                                         @RequestParam(required = false) Long userId,
+                                         @RequestParam(required = false) Long managerId,
+                                         @RequestParam(required = false) Long truckId)
+    {
+        return tripService.fetchTrips(id,  userId,  managerId,  truckId).stream()
                 .map(p -> new TripResponse(p.getId(), p.getStart(), p.getEnd(), p.getDeadline(), p.getStatus(), p.getDriver().getId(), p.getManager().getId(), p.getTruck().getId()))
                 .collect(Collectors.toList());
     }
@@ -41,13 +49,14 @@ public class TripController {
         tripService.deleteTripByLogin(id);
         return ResponseEntity.noContent().build();
     }
-//    @PutMapping(path = "/update")
-//    @Operation(summary = "Update trip information")
-//    public void updateTripLogin(@RequestParam String id,
-//                                @RequestParam(required = false) String newStart,
-//                                @RequestParam(required = false)
-//                                )
-//
-//        this.tripService.updateTripInformation(login, newLogin, newEmail, newPassword, newFirstName, newLastName, newPhoneNumber, newSalary, newStatus, newAccountType);
-//    }
+
+    @PutMapping(path = "/update")
+    @Operation(summary = "Update user information")
+    public void updateUserLogin(@RequestParam Long id,
+                                @RequestParam(required = false) LocalDate start,
+                                @RequestParam(required = false) LocalDate end,
+                                @RequestParam(required = false) TripStatus status) {
+        this.tripService.updateTripInformation(id ,start, end, status);
+    }
+
 }

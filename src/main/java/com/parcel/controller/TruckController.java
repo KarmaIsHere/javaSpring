@@ -43,11 +43,12 @@ public class TruckController {
     @PutMapping(path = "/update")
     @Operation(summary = "Update truck information")
     public void updateUserLogin(@RequestParam Long id,
-                                @RequestParam(required = false) String newBrand,
-                                @RequestParam(required = false) String newYear,
-                                @RequestParam(required = false) String newHeight,
-                                @RequestParam(required = false) String newWeight) {
-        this.truckService.updateTruckInformation(id, newBrand, newYear, newHeight, newWeight);
+                                @RequestParam(required = false) String brand,
+                                @RequestParam(required = false) String year,
+                                @RequestParam(required = false) String height,
+                                @RequestParam(required = false) String weight,
+                                @RequestParam(required = false) TruckStatus status) {
+        this.truckService.updateTruckInformation(id, brand, year, height, weight, status);
     }
     @DeleteMapping(path = "/delete")
     @Operation(summary = "Delete truck from database")
