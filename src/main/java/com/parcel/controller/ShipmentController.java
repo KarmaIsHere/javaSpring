@@ -3,7 +3,6 @@ package com.parcel.controller;
 import com.parcel.model.api.request.CreateShipmentRequest;
 import com.parcel.model.api.response.ShipmentResponse;
 import com.parcel.model.domain.order.ShipmentStatus;
-import com.parcel.model.domain.order.TripStatus;
 import com.parcel.service.ShipmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 

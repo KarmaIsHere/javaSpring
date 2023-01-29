@@ -1,7 +1,6 @@
 package com.parcel.repository;
 
 import com.parcel.model.domain.order.ClassTrip;
-import com.parcel.model.domain.user.ClassUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

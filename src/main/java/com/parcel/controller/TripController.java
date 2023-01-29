@@ -3,8 +3,6 @@ package com.parcel.controller;
 import com.parcel.model.api.request.CreateTripRequest;
 import com.parcel.model.api.response.TripResponse;
 import com.parcel.model.domain.order.TripStatus;
-import com.parcel.model.domain.user.UserAccountType;
-import com.parcel.model.domain.user.UserStatus;
 import com.parcel.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

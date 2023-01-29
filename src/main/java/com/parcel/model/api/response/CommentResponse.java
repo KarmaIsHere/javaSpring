@@ -1,10 +1,9 @@
 package com.parcel.model.api.response;
 
-import com.parcel.model.domain.forum.ClassForum;
-import com.parcel.model.domain.user.ClassUser;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import java.time.LocalDate;
 
 @Data

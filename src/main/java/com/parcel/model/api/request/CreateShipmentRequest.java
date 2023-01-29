@@ -1,6 +1,5 @@
 package com.parcel.model.api.request;
 
-import com.parcel.model.domain.order.ClassDestination;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.Size;
-
 @Data
 @AllArgsConstructor
 public class CreateStopPointRequest {

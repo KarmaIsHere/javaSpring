@@ -1,11 +1,9 @@
 package com.parcel.model.api.response;
 
-import com.parcel.model.domain.order.ShipmentStatus;
 import com.parcel.model.domain.order.TripStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 
 import java.time.LocalDate;
 

@@ -3,7 +3,6 @@ package com.parcel.service;
 import com.parcel.model.api.request.CreateTruckRequest;
 import com.parcel.model.domain.ClassTruck;
 import com.parcel.model.domain.TruckStatus;
-import com.parcel.model.domain.user.ClassUser;
 import com.parcel.repository.TruckRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
