@@ -5,7 +5,7 @@ import com.parcel.model.domain.user.ClassUser;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +17,7 @@ public class CommentResponse {
     private String text;
 
     @Schema(description = "Comment date")
-    private Instant date;
+    private LocalDate date;
 
     @Schema(description = "Comment forum", example = "1")
     private Long forum;

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,7 +26,7 @@ public class CommentService {
     }
 
     public ClassComment createComment(CreateCommentRequest request) {
-        Instant now = Instant.now();
+        LocalDate now = LocalDate.now();
         ClassForum forum = forumService.fetchForum(request.getForum());
         ClassUser user = userService.fetchUser(request.getUser());
         ClassComment comment = ClassComment.builder()

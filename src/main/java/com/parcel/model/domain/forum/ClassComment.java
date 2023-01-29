@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Data
 @Entity(name = "Comments")
@@ -25,7 +25,7 @@ public class ClassComment {
     private String text;
 
     @Column(name = "COMMENT_DATE", nullable = false)
-    private Instant date;
+    private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FORUM_ID", nullable = false)

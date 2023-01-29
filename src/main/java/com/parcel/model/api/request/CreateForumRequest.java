@@ -11,17 +11,17 @@ import javax.validation.constraints.Size;
 public class CreateForumRequest {
 
     @NonNull
-    @Schema(description = "Forum title", example = "Where has Bob Roger been?")
+    @Schema(description = "title", example = "Where has Bob Roger been?")
     private String title;
 
-    @Schema(description = "Forum description", example = "Truck")
+    @Schema(description = "description", example = "Truck")
     private String description;
 
     @NonNull
-    @Schema(description = "Forum category", example = "Truck")
+    @Schema(description = "category", example = "Truck")
     private String category;
 
     @NonNull
-    @Schema(description = "Forum creator", example = "1")
+    @Schema(description = "creator", example = "1")
     private Long user;
 }

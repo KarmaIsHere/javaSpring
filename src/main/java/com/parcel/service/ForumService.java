@@ -7,7 +7,7 @@ import com.parcel.repository.ForumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,7 +22,7 @@ public class ForumService {
     }
 
     public ClassForum createForum(CreateForumRequest request) {
-        Instant now = Instant.now();
+        LocalDate now = LocalDate.now();
         ClassUser user = userService.fetchUser(request.getUser());
         ClassForum forum = ClassForum.builder()
                 .title(request.getTitle())
@@ -33,7 +33,7 @@ public class ForumService {
         return forumRepository.save(forum);
     }
 
-    public List<ClassForum> fetchForums(Long id, Long forumId, String text) {
+    public List<ClassForum> fetchForums(Long id) {
         if (id != null) {
             return this.forumRepository.findAllById(id);
         } //else if (forumId != null) {

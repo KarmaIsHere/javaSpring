@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -39,7 +39,7 @@ public class ClassForum {
     private ClassUser creator;
 
     @Column(name = "FORUM_CREATIONDATE", nullable = false)
-    private Instant date;
+    private LocalDate date;
 
 
 

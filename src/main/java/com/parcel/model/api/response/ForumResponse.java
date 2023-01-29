@@ -4,28 +4,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 public class ForumResponse {
 
-    @Schema(name = "Forum id", example = "1")
+    @Schema(name = "id", example = "1")
     private Long id;
 
-    @Schema(name = "Forum title", example = "Where has Bob Roger been?")
+    @Schema(name = "title", example = "Where has Bob Roger been?")
     private String title;
 
-    @Schema(name = "Forum description", example = "Has anybody seen Bob for the past week?")
+    @Schema(name = "description", example = "Has anybody seen Bob for the past week?")
     private String description;
 
-    @Schema(name = "Forum category", example = "Truck")
+    @Schema(name = "category", example = "Truck")
     private String category;
 
-    @Schema(name = "Forum creator", example = "John Smith")
+    @Schema(name = "creator", example = "John Smith")
     private Long user;
 
-    @Schema(name = "Forum creation date")
-    private Instant date;
+    @Schema(name = "creationDate")
+    private LocalDate date;
 
 }
